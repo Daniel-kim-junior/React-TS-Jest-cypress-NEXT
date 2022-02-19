@@ -8,12 +8,12 @@ type stateType = {
 function Counter () {
   const [state, setState] = useState<stateType>({
     value: 0,
-    title: "",
+    title: "hospital",
   })
 
   const changeTitle = (e: React.FormEvent<HTMLInputElement>) => {
     setState({
-      title: e.currentTarget.value,
+      title: state.title.toUpperCase(),
       value: state.value
     });
   };
@@ -23,7 +23,8 @@ function Counter () {
     return (
       <div>
         <input value={state.title} id="title" onChange={changeTitle} />
-        <b>{state.value}</b>
+        <b>{state.title}</b>
+        <span>{state.value}</span>
         <button id="up" onClick={increment}>
           증가
         </button>
