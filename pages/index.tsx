@@ -7,6 +7,9 @@ const Home: NextPage = () => {
       <Link href="/about">
         <a>About</a>
       </Link>
+      <Link href="/Counter">
+        <a>Counter</a>
+      </Link>
     </nav>
   );
 };

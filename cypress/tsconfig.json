@@ -1,9 +1,11 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "noEmit": true,
-    // be explicit about types included
-    // to avoid clashing with Jest types
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
     "types": ["cypress"]
   },
   "include": ["../node_modules/cypress", "integration/*.spec.ts", "support/*.ts"]
