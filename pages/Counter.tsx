@@ -18,7 +18,7 @@ function Counter () {
     });
   };
   const increment = () => {
-    setState({value: state.value + 1, title: state.title})
+    setState((prev) => ({value: prev.value + 1, title: prev.title}) )
   }
     return (
       <div>
