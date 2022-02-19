@@ -1,31 +1,36 @@
-import React, { Component } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
+type stateType = {
+  value: number,
+  title: string,
+}
 
-class Counter extends React.Component {
-  state = {
+function Counter () {
+  const [state, setState] = useState<stateType>({
     value: 0,
     title: "",
-  };
-  changeTitle = (e: React.FormEvent<HTMLInputElement>) => {
-    this.setState(() => {
-      title: e.currentTarget.value;
+  })
+
+  const changeTitle = (e: React.FormEvent<HTMLInputElement>) => {
+    setState({
+      title: e.currentTarget.value,
+      value: state.value
     });
   };
-  increment = () => {
-    this.setState((prevState: {value: number, title: string}) => ({ value: prevState.value + 1 }));
-  };
-
-  render() {
+  const increment = () => {
+    setState({value: state.value + 1, title: state.title})
+  }
     return (
       <div>
-        <input value={this.state.title} id="title" onChange={this.changeTitle} />
-        <b>{this.state.value}</b>
-        <button id="up" onClick={this.increment}>
+        <input value={state.title} id="title" onChange={changeTitle} />
+        <b>{state.value}</b>
+        <button id="up" onClick={increment}>
           증가
         </button>
       </div>
     );
-  }
 }
+  
+
 
 export default Counter;
